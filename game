@@ -11,7 +11,7 @@ public class game{
 	 TextField t1;
 	 TextArea t2;
 	 String str;
-	 int uval,val,points=100,round=0;
+	 int uval,val,points=100,round=1;
 	 game()
 	 {
 		  str=" ";
@@ -23,8 +23,9 @@ public class game{
 			System.exit(0);
 		}
 		});
-		Label res=new Label("\n You've played until:"+round+"Better Luck Next Timeee...");
+		JLabel res=new JLabel("\n You've played until Round:  "+round+".\n"+"    Better Luck Next Timeee...");
 	    res.setBounds(650,150,500,200);
+		res.setFont(new Font("Arial",Font.PLAIN,16));
 		f2.add(res);
 		 val=rn.nextInt(100);
 		Label l1=new Label(" Enter your Guess here");
@@ -32,27 +33,27 @@ public class game{
         Label l2=new Label("Result:");
         l2.setBounds(500,150,100,30);	
 		
-		f=new JFrame("Guess The Number");
-		 f.setSize(300,400);
+		f=new JFrame("Guess The Number😁");
+		 f.setSize(1920,1080);
 		 f.setLayout(null);
 		 f.setVisible(true);
 		 t1=new TextField(20);
-		  Label l3=new Label("Round "+(++round));
+		  Label l3=new Label("Round "+(round));
 		  Label l4=new Label("Points:"+points);
 		  l4.setBounds(1200,200,200,30);
 		  f.add(l4);
 		 t1.setBounds(650,100,200,30);
-		 Button b=new Button("reveal");
-		 b.setBounds(100,200,30,30);
+		 //Button b=new Button("reveal");
+		 //b.setBounds(100,200,30,30);
 		 t2=new TextArea(200,20);
 		t2.setBounds(650,150,500,200);
-         f.add(b);
-		 b.addActionListener(new ActionListener()
+         //f.add(b);
+		 /*b.addActionListener(new ActionListener()
 		 {
 			 public void actionPerformed(ActionEvent ae){
 			 t2.setText(" "+val);
 		    }
-		 });
+		 });*/
 		 t1.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent ae)
@@ -73,7 +74,7 @@ public class game{
 				l4.setText("Points:"+points);
 				  if(points<=0)
 				  {  
-                       f2.setSize(300,400);
+                       f2.setSize(1920,1080);
 		               f2.setLayout(null);
 		             f2.setVisible(true);
 		              //res.setText();        
@@ -100,7 +101,7 @@ public class game{
 				l4.setText("Points:"+points);
 				 if(points<=0)
 				  {  t2.setText("You're out of points");
-                       f2.setSize(300,400);
+                       f2.setSize(1920,1080);
 		               f2.setLayout(null);
 		             f2.setVisible(true);
 		                   f2.setBackground(Color.cyan);   
