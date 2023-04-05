@@ -22,7 +22,7 @@ class atm_interface{
 				f1.setVisible(false);
 				f2.setVisible(true);
 				f2.setLayout(null);
-				f2.setSize(500,500);
+				f2.setSize(1920,1080);
 				Label l1=new Label("Enter the amount you want to deposit:");
                 l1.setBounds(400,100,200,30);
 				f2.add(l1);
@@ -42,18 +42,23 @@ class atm_interface{
 				{
 					public void actionPerformed(ActionEvent ae)
 					{
+						try{
 						if(pas.getText().equals(pin))
 				         {
 					        bal+=Double.parseDouble(amt.getText());
 					        t3.setText("Amount has been Succesfully deposited .\nThe Current BAlance in your account is :"+bal);
-							f1.setVisible(true);
+							//f1.setVisible(true);
 			        	}
 				        else
 				        {
 					        t3.setText("Incorrect Pin number");
-							f1.setVisible(true);
 				        }
-						//f2.setVisible(false);
+						Thread.sleep(10000);
+						}
+						catch(Exception e)
+						{}
+						f2.setVisible(false);
+					    f1.setVisible(true);
 					}
 				});
 				
@@ -72,7 +77,7 @@ class atm_interface{
 				f1.setVisible(false);
 				f2.setVisible(true);
 				f2.setLayout(null);
-				f2.setSize(500,500);
+				f2.setSize(1920,1080);
 				Label l1=new Label("Enter the amount you want to deposit:");
                 l1.setBounds(400,100,200,30);
 				f2.add(l1);
@@ -92,6 +97,7 @@ class atm_interface{
 				{
 					public void actionPerformed(ActionEvent ae)
 					{
+						try{
 						if(pas.getText().equals(pin))
 				         {
 					       Double amnt=Double.parseDouble(amt.getText());
@@ -99,7 +105,7 @@ class atm_interface{
 						   {
 							   bal-=amnt;
 					        t3.setText("Amount has been Succesfully withdrawn .\nThe Current BAlance in your account is :"+bal);
-							f1.setVisible(true);
+							//f1.setVisible(true);
 						   }
 						   else{
 							   t3.setText("Insuffecient Funds");
@@ -108,8 +114,13 @@ class atm_interface{
 				        else
 				        {
 					        t3.setText("Incorrect Pin number");
-							f1.setVisible(true);
 				        }
+						Thread.sleep(10000);
+						    f2.setVisible(false);
+							f1.setVisible(true);
+						}
+						catch(Exception e)
+						{}
 						//f2.setVisible(false);
 					}
 				});
@@ -117,10 +128,57 @@ class atm_interface{
 		});
 		
 		
-     	/*b3=new Button("Balance  Enquiry");
+     	b3=new Button("Change password");
 		b3.setBounds(1000,500,200,100);
 		f1.add(b3);
-		*/
+			b3.addActionListener(new ActionListener(){
+				public void actionPerformed(ActionEvent ae)
+				{
+									f2=new Frame("change pin");
+				f1.setVisible(false);
+				f2.setVisible(true);
+				f2.setLayout(null);
+				f2.setSize(1920,1080);
+				Label l1=new Label("Enter new Pin:");
+                l1.setBounds(400,100,200,30);
+				f2.add(l1);
+                Label l2=new Label("Enter Old Number");
+                l2.setBounds(500,150,100,30);		
+				f2.add(l2);
+				TextField oldpas=new TextField();
+				oldpas.setBounds(650,100,200,30);
+				TextField newpas=new TextField();
+				newpas.setBounds(650,150,200,30);
+				TextArea t3=new TextArea(200,20);
+		        t3.setBounds(650,450,500,200);
+				f2.add(t3);
+				f2.add(oldpas);
+					t3.setText("Pin should contain only numbers");
+				f2.add(newpas);
+				newpas.addActionListener(new ActionListener(){
+					public void actionPerformed(ActionEvent ae)
+					{
+						try{
+						if (oldpas.getText().equals(pin))
+						t3.setText("new Password should not be the same as old one !!");
+					    else
+						{//t3.setText("Previous pin:"+pin);
+							pin=oldpas.getText();
+					
+						t3.setText("Pin changed succesfully");}
+						Thread.sleep(10000);
+						f2.setVisible(false);
+						f1.setVisible(true);
+						
+						}
+						catch(Exception e)
+						{}
+					}
+				});
+			    		
+				}
+			});
+
 			b4=new Button("Balance Enquiry");
 		b4.setBounds(50,100,200,100);
 		f1.add(b4); 
@@ -131,7 +189,7 @@ class atm_interface{
 				f1.setVisible(false);
 				f2.setVisible(true);
 				f2.setLayout(null);
-				f2.setSize(500,500);
+				f2.setSize(1920,1080);
 				//Label l1=new Label("Enter the amount you want to deposit:");
                 //l1.setBounds(400,100,200,30);
 				//f2.add(l1);
@@ -151,19 +209,25 @@ class atm_interface{
 				{
 					public void actionPerformed(ActionEvent ae)
 					{
+						try{
 						if(pas.getText().equals(pin))
 				         {
 					       // bal-=Double.parseDouble(amt.getText());
 
 					        t3.setText("The Current BAlance in your account is :"+bal);
-							f1.setVisible(true);
+						//	f1.setVisible(true);
 			        	}
 				        else
 				        {
 					        t3.setText("Incorrect Pin number");
+						}
+							Thread.sleep(10000);
 							f1.setVisible(true);
-				        }
-						//f2.setVisible(false);
+							f2.setVisible(false);
+				        
+						}
+						catch(Exception e)
+						{}
 					}
 				});
 				
@@ -184,7 +248,7 @@ class atm_interface{
 				f1.setVisible(false);
 				f2.setVisible(true);
 				f2.setLayout(null);
-				f2.setSize(500,500);
+				f2.setSize(1920,1080);
 				Label l1=new Label("Enter the acceptor account details:");
                 l1.setBounds(400,100,200,30);
 				f2.add(l1);
@@ -210,6 +274,7 @@ class atm_interface{
 				{
 					public void actionPerformed(ActionEvent ae)
 					{
+						try{
 						if(pas.getText().equals(pin))
 				         {
 					        Double amnt=Double.parseDouble(amt.getText());
@@ -227,7 +292,11 @@ class atm_interface{
 					        t3.setText("Incorrect Pin number");
 							f1.setVisible(true);
 				        }
-						//f2.setVisible(false);
+						Thread.sleep(10000);
+						f2.setVisible(false);						}
+						catch(Exception e)
+						{}
+						
 					}
 				});
 				
@@ -235,13 +304,13 @@ class atm_interface{
 			}
 		});
 		
-		b6=new Button("6Button");
+		b6=new Button("Exit");
 		b6.setBounds(350,500,200,100);
 		f1.add(b6);
 		b6.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent ae)
 			{
-				f1.dispose();
+				System.exit(0);
 			}
 		});
 		TextArea t2=new TextArea("ATM INTERFACE...",200,20);
@@ -257,7 +326,7 @@ class atm_interface{
 		});
 		f1.setVisible(true);
 		f1.setLayout(null);
-		f1.setSize(1000,1000);
+		f1.setSize(1920,1080);
 	}
 	public static void main(String [] arg)
 	{
